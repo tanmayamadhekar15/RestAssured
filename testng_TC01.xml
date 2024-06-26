@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true"
+          name="D:/April2024/RestAssuredProject1/src/test/java/RestAssuredProject1/testNG/TC01.java">
+        <classes>
+            <class name="RestAssuredProject1.testNG.TC01_RestfulBooker">
+                <methods>
+                    <include name="getToken"/>
+                    <include name="getBooking"/>
+                    <include name="createBooking"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

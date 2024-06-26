@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Restful booker API Test Suite">
+    <test verbose="2" preserve-order="true" name="ATB6xRestAssuredLearning">
+        <parameter name="browser" value="chrome"></parameter>
+        <parameter name="browser" value="firefox"></parameter>
+        <classes>
+            <class name="RestAssuredProject1.testNG.june_25.parametersEx">  </class>
+        </classes>
+    </test>
+</suite>

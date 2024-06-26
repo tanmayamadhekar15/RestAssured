@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Restful booker API Test Suite">
+    <test verbose="2" preserve-order="true" name="ATB6xRestAssuredLearning">
+        <packages >
+            <package name="RestAssuredProject1.testNG.june_22.NonBDDStyle_RestFulBooker.*"></package>
+        </packages>
+<!--        <classes>-->
+<!--            <class name="RestAssuredProject1.testNG.june_22.NonBDDStyle_RestFulBooker.GET"></class>-->
+<!--            <class name="RestAssuredProject1.testNG.june_22.NonBDDStyle_RestFulBooker.POST"></class>-->
+<!--            <class name="RestAssuredProject1.testNG.june_22.NonBDDStyle_RestFulBooker.PATCH"></class>-->
+<!--            <class name="RestAssuredProject1.testNG.june_22.NonBDDStyle_RestFulBooker.PUT"></class>-->
+<!--            <class name="RestAssuredProject1.testNG.june_22.NonBDDStyle_RestFulBooker.DELETE"></class>-->
+<!--        </classes>-->
+
+
+    </test>
+</suite>
