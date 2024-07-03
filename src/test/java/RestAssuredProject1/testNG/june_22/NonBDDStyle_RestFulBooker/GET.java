@@ -39,5 +39,7 @@ public class GET {
         r.basePath("/booking/-1").log().all();
         r.when().get();
         r.then().log().all().statusCode(404);
+
+
     }
 }

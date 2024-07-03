@@ -2,12 +2,18 @@ package RestAssuredProject1.testNG.june_22.NonBDDStyle_RestFulBooker;
 
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
+import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import io.restassured.response.ValidatableResponse;
 import io.restassured.specification.RequestSpecification;
+import org.hamcrest.Matchers;
 import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
+
+import javax.swing.*;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class Ex277 {
     String token;
@@ -79,7 +85,7 @@ public class Ex277 {
         System.out.println(" - Test Case PUT Request ");
 
         String payload = "{\n" +
-                "    \"firstname\" : \"Pramod\",\n" +
+                "    \"firstname\" : \"Jim\",\n" +
                 "    \"lastname\" : \"Brown\",\n" +
                 "    \"totalprice\" : 111,\n" +
                 "    \"depositpaid\" : true,\n" +
@@ -105,6 +111,35 @@ public class Ex277 {
 
         validatableResponse = response.then().log().all();
         validatableResponse.statusCode(200);
+
+        String fullResponseJSON= response.asString();
+        System.out.println(fullResponseJSON);
+
+        //Approach 1- Rest Assured Validate matchers
+        validatableResponse.body("firstname", Matchers.equalTo("Jim"));
+        validatableResponse.body("totalprice", Matchers.equalTo(111));
+
+        //Approach 2 - Testng asserts
+        String firstname=response.then().log().all().extract().path("firstname");
+        Integer totalprice=response.then().extract().path("totalprice");
+        Assert.assertEquals(firstname,"Jim");
+        Assert.assertEquals(totalprice,111);
+
+        //Approach 3 - Testng assertion using json path lib
+        JsonPath json =new JsonPath(fullResponseJSON);
+        String firstJsonPath =json.getString("firstname");
+        Integer tp=json.getInt("totalprice");
+        Assert.assertEquals(firstJsonPath,"Jim");
+        Assert.assertEquals(tp,111);
+
+
+        //Approach 4 - AssertJ
+        assertThat(firstJsonPath)
+                .isEqualTo("Jim")
+                .isNotBlank().isNotEmpty();
+
+        assertThat(tp).isEqualTo(111).isNotNull().isPositive();
+
 
 
     }
